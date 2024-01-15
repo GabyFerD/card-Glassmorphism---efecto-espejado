@@ -34,10 +34,12 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.125);
 
   transition: all 0.5s ease;
+
+  overflow: hidden; /*para que la luz solo se vea en la card*/
 }
 
 .card-header img {
-  height: 250px;
+  height: 200px;
   border-radius: 5px;
 }
 h1 {
@@ -62,4 +64,23 @@ p {
   box-shadow: 0 7px 50px 10px #0000008a;
   transform: scale(1.01);
   transition: all 0.5s ease;
+}
+
+/* Luz espejada */
+
+.card::before {
+  position: fixed;
+  content: "";
+  box-shadow: 0 0 100px 40px #ffffff5e;
+  top: -10%;
+  left: -100%;
+  transform: rotate(-45deg);
+  height: 60rem;
+  transition: 0.7s all;
+}
+
+.card:hover::before {
+  filter: brightness(0.5);
+  top: -100%;
+  left: 200%;
 }
